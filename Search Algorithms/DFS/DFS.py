@@ -113,12 +113,18 @@ def isin(g, gList):
 
 #计算逆序数之和
 def N(nums):
-    N=0
-    for i in range(len(nums)):
-        if(nums[i]!=0):
-            for j in range(i):
-                if(nums[j]>nums[i]):
-                    N+=1
+   N=0
+    tempL=[]
+    for i in range(len(nums) ):
+        for j in range(len(nums[i])):
+            if nums[i][j]!=0:
+              tempL.append(nums[i][j])
+
+    for i in range(len(tempL)-1):
+        for j in range (len(tempL)-i-1):
+            o=i+j+1
+            if tempL[i]>tempL[o]:
+                N+=1
     return N
 
 #根据逆序数之和判断所给八数码是否可解
